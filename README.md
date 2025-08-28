@@ -1,11 +1,11 @@
 # 🧹 RedeCanais Cleaner
 
 [![Tampermonkey](https://img.shields.io/badge/Tampermonkey-Compatible-brightgreen?style=for-the-badge&logo=tampermonkey)](https://www.tampermonkey.net/)  
-[![Version](https://img.shields.io/badge/Version-1.6-blue?style=for-the-badge)]()  
+[![Version](https://img.shields.io/badge/Version-1.8-blue?style=for-the-badge)]()  
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)  
 
-**Mantenha o site RedeCanaisTV limpo e rápido!**  
-Bloqueie anúncios, scripts indesejados e elementos irritantes enquanto navega.  
+**Mantenha o site RedeCanaisTV e parceiros limpos e rápidos!**  
+Bloqueie anúncios, scripts indesejados e elementos irritantes enquanto navega, e configure facilmente domínios adicionais.
 
 ---
 
@@ -30,6 +30,14 @@ Bloqueie anúncios, scripts indesejados e elementos irritantes enquanto navega.
 - ✅ **Overlay de progresso** de 2 segundos
 - ✅ **Intercepta chamadas XHR e fetch** para impedir requisições indesejadas
 - ✅ **Bloqueia scripts externos** antes de serem carregados
+- ✅ **Suporte a múltiplos domínios parceiros**, incluindo:
+  - `redecanaistv.ee`
+  - `overflixtv.team`
+  - `vizertv.fun`
+  - `pobreflixtv.bid`
+  - `tvredecanais.bid`
+  - `megafilmeshd50.bid`
+- ✅ **Domínios personalizados**: o usuário pode adicionar domínios extras via menu do Tampermonkey (`Configurar domínios`)
 
 ---
 
@@ -44,9 +52,25 @@ Bloqueie anúncios, scripts indesejados e elementos irritantes enquanto navega.
 
 ## 🚀 Uso
 
-- O script roda automaticamente em qualquer página do site `https://redecanaistv.ee/*`.  
+- O script roda automaticamente nos domínios padrões e adicionais configurados.  
 - Após o carregamento, ele limpa scripts e elementos indesejados e exibe um overlay de progresso.  
 - Logs de bloqueio podem ser vistos no console do navegador (`F12 > Console`).  
+- Para adicionar ou remover domínios personalizados, use o menu do Tampermonkey: **Configurar domínios**.
+
+---
+
+## 🌐 Domínios padrão suportados
+
+| Domínio |
+|---------|
+| `redecanaistv.ee` |
+| `overflixtv.team` |
+| `vizertv.fun` |
+| `pobreflixtv.bid` |
+| `tvredecanais.bid` |
+| `megafilmeshd50.bid` |
+
+> Domínios adicionais podem ser adicionados pelo usuário via menu do Tampermonkey.
 
 ---
 
@@ -71,4 +95,4 @@ Clique no botão abaixo:
 
 ---
 
-*Script versão 1.6 – atualizado para 2025, garantindo uma navegação limpa e sem anúncios no RedeCanaisTV.*
+*Script versão 1.8 – atualizado para 2025, agora com suporte a múltiplos domínios parceiros e domínios personalizados do usuário.*
