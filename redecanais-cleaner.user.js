@@ -1,21 +1,57 @@
 // ==UserScript==
 // @name         Bloquear Scripts + Limpeza do Site RedeCanais
 // @namespace    https://github.com/hpuglia/
-// @version      1.6
+// @version      1.8
 // @author       Henrique Puglia
-// @description  Script customizado para limpar anúncios, domínios e elementos indesejados no site RedeCanaisTV. Exibe overlay "Aguarde..." até finalizar a limpeza.
-// @match        https://redecanaistv.ee/*
+// @description  Script customizado para limpar anúncios, domínios e elementos indesejados no site RedeCanaisTV. Permite configurar domínios adicionais.
+// @match        *://*/*
 // @icon         https://redecanaistv.ee/favicon.ico
 // @updateURL    https://raw.githubusercontent.com/hpuglia/redecanais-cleaner/main/redecanais-cleaner.user.js
 // @downloadURL  https://raw.githubusercontent.com/hpuglia/redecanais-cleaner/main/redecanais-cleaner.user.js
 // @supportURL   https://github.com/hpuglia/redecanais-cleaner/issues
 // @run-at       document-start
-// @grant        none
+// @grant        GM_registerMenuCommand
+// @grant        GM_setValue
+// @grant        GM_getValue
 // ==/UserScript==
-
 
 (function () {
     'use strict';
+
+    // Lista padrão de domínios aceitos
+    const defaultDomains = [
+        "redecanaistv.ee",
+        "overflixtv.team",
+        "vizertv.fun",
+        "pobreflixtv.bid",
+        "tvredecanais.bid",
+        "megafilmeshd50.bid"
+    ];
+
+    // Função para configurar domínios adicionais
+    function configureDomains() {
+        const savedDomains = GM_getValue('customDomains', []);
+        const currentList = [...defaultDomains, ...savedDomains].join(", ");
+        const input = prompt(
+            "Digite os domínios adicionais que deseja permitir (separados por vírgula):",
+            savedDomains.join(", ")
+        );
+        if (input !== null) {
+            const newList = input.split(",").map(d => d.trim()).filter(Boolean);
+            GM_setValue('customDomains', newList);
+            alert(`Domínios adicionais salvos: ${newList.join(", ")}`);
+        }
+    }
+
+    // Adiciona o comando no menu do Tampermonkey
+    GM_registerMenuCommand('Configurar domínios', configureDomains);
+
+    // Obtém domínios personalizados
+    const customDomains = GM_getValue('customDomains', []);
+    const allDomains = [...defaultDomains, ...customDomains];
+
+    // Se o hostname atual não estiver na lista, não roda o script
+    if (!allDomains.some(domain => location.hostname.includes(domain))) return;
 
     const blockedHosts = [
         "redecanais-oficial.chatango.com",
@@ -25,7 +61,7 @@
         "canais.disqus.com"
     ];
 
-    // Cria overlay
+    // Função para criar overlay
     function createOverlay() {
         const overlay = document.createElement("div");
         overlay.id = "tmk-overlay";
@@ -56,7 +92,6 @@
         overlay.appendChild(counter);
         document.documentElement.appendChild(overlay);
 
-        // contador regressivo de 2s
         let seconds = 2;
         counter.innerText = `(${seconds})`;
         const interval = setInterval(() => {
@@ -66,30 +101,21 @@
         }, 1000);
     }
 
-    // Remove scripts e elementos indesejados
+    // Limpeza da página
     function cleanPage() {
-        // remove <script>
         document.querySelectorAll("head script, body script").forEach(el => el.remove());
-
-        // remove <center>, <section class="alert">, <footer>, <div class="aviso-parceria">
         document.querySelectorAll("center, section.alert, footer, div.aviso-parceria").forEach(el => el.remove());
-
         console.log("[Tampermonkey] Scripts e elementos removidos!");
-
-        // remove overlay
         const overlay = document.getElementById("tmk-overlay");
         if (overlay) overlay.remove();
     }
 
-    // Cria overlay já no início
     createOverlay();
-
-    // Executa limpeza após carregamento + 2s
     window.addEventListener("load", () => {
         setTimeout(cleanPage, 2000);
     });
 
-    // Intercepta XHR e fetch
+    // Bloqueio de XHR e fetch
     const origOpen = XMLHttpRequest.prototype.open;
     XMLHttpRequest.prototype.open = function (method, url) {
         if (blockedHosts.some(host => url.includes(host))) {
@@ -104,12 +130,11 @@
         const url = arguments[0];
         if (blockedHosts.some(host => url.includes(host))) {
             console.log("[Tampermonkey] Bloqueado fetch:", url);
-            return new Promise(() => { }); // nunca resolve
+            return new Promise(() => { }); 
         }
         return origFetch.apply(this, arguments);
     };
 
-    // Bloqueia <script src="...">
     const origCreate = document.createElement;
     document.createElement = function (tag) {
         const el = origCreate.call(document, tag);
