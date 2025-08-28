@@ -1,5 +1,14 @@
 # 🧹 RedeCanais Cleaner
 
+## ⚠️ IMPORTANTE
+
+Para melhor funcionamento e garantia de funcionamento, instale **AdBlocker** e **Popup Blocker** além do Tampermonkey:
+
+[![Instalar AdBlock](https://img.shields.io/badge/Instalar-AdBlock-brightgreen?style=for-the-badge&logo=adblock)](https://getadblock.com/pt_BR/)  
+[![Instalar Popup Blocker](https://img.shields.io/badge/Instalar-Popup%20Blocker-blue?style=for-the-badge&logo=chrome)](https://chrome.google.com/webstore/detail/pop-up-blocker-for-chrome/bkkbcggnhapdmkeljlodobbkopceiche)
+
+---
+
 [![Tampermonkey](https://img.shields.io/badge/Tampermonkey-Compatible-brightgreen?style=for-the-badge&logo=tampermonkey)](https://www.tampermonkey.net/)  
 [![Version](https://img.shields.io/badge/Version-1.8-blue?style=for-the-badge)]()  
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)  
