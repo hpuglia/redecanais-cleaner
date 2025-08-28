@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bloquear Scripts + Limpeza do Site RedeCanais
 // @namespace    https://github.com/hpuglia/
-// @version      1.9
+// @version      2.0
 // @author       Henrique Puglia
 // @description  Script customizado para limpar anúncios, domínios e elementos indesejados no site RedeCanaisTV. Permite configurar domínios adicionais.
 // @match        :///*
