@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bloquear Scripts + Limpeza do Site RedeCanais
 // @namespace    https://github.com/hpuglia/
-// @version      1.8
+// @version      1.9
 // @author       Henrique Puglia
 // @description  Script customizado para limpar anúncios, domínios e elementos indesejados no site RedeCanaisTV. Permite configurar domínios adicionais.
 // @match        *://*/*
@@ -31,16 +31,16 @@
     // Função para configurar domínios adicionais
     function configureDomains() {
         const savedDomains = GM_getValue('customDomains', []);
-        const currentList = [...defaultDomains, ...savedDomains].join(", ");
         const input = prompt(
             "Digite os domínios adicionais que deseja permitir (separados por vírgula):",
             savedDomains.join(", ")
         );
-        if (input !== null) {
-            const newList = input.split(",").map(d => d.trim()).filter(Boolean);
-            GM_setValue('customDomains', newList);
-            alert(`Domínios adicionais salvos: ${newList.join(", ")}`);
-        }
+
+        if (input === null) return; // usuário cancelou, sai imediatamente
+
+        const newList = input.split(",").map(d => d.trim()).filter(Boolean);
+        GM_setValue('customDomains', newList);
+        alert(`Domínios adicionais salvos: ${newList.join(", ")}`);
     }
 
     // Adiciona o comando no menu do Tampermonkey
@@ -130,7 +130,7 @@
         const url = arguments[0];
         if (blockedHosts.some(host => url.includes(host))) {
             console.log("[Tampermonkey] Bloqueado fetch:", url);
-            return new Promise(() => { }); 
+            return new Promise(() => { });
         }
         return origFetch.apply(this, arguments);
     };
