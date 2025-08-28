@@ -4,7 +4,7 @@
 // @version      1.9
 // @author       Henrique Puglia
 // @description  Script customizado para limpar anúncios, domínios e elementos indesejados no site RedeCanaisTV. Permite configurar domínios adicionais.
-// @match        *://*/*
+// @match        :///*
 // @icon         https://redecanaistv.ee/favicon.ico
 // @updateURL    https://raw.githubusercontent.com/hpuglia/redecanais-cleaner/main/redecanais-cleaner.user.js
 // @downloadURL  https://raw.githubusercontent.com/hpuglia/redecanais-cleaner/main/redecanais-cleaner.user.js
@@ -25,6 +25,7 @@
         "vizertv.fun",
         "pobreflixtv.bid",
         "tvredecanais.bid",
+        "redecanais.ee",
         "megafilmeshd50.bid"
     ];
 
@@ -40,7 +41,7 @@
 
         const newList = input.split(",").map(d => d.trim()).filter(Boolean);
         GM_setValue('customDomains', newList);
-        alert(`Domínios adicionais salvos: ${newList.join(", ")}`);
+        alert(Domínios adicionais salvos: ${newList.join(", ")});
     }
 
     // Adiciona o comando no menu do Tampermonkey
@@ -93,22 +94,26 @@
         document.documentElement.appendChild(overlay);
 
         let seconds = 2;
-        counter.innerText = `(${seconds})`;
+        counter.innerText = (${seconds});
         const interval = setInterval(() => {
             seconds--;
-            counter.innerText = `(${seconds})`;
+            counter.innerText = (${seconds});
             if (seconds <= 0) clearInterval(interval);
         }, 1000);
     }
 
     // Limpeza da página
-    function cleanPage() {
-        document.querySelectorAll("head script, body script").forEach(el => el.remove());
-        document.querySelectorAll("center, section.alert, footer, div.aviso-parceria").forEach(el => el.remove());
-        console.log("[Tampermonkey] Scripts e elementos removidos!");
-        const overlay = document.getElementById("tmk-overlay");
-        if (overlay) overlay.remove();
-    }
+function cleanPage() {
+    document.querySelectorAll("head script, body script").forEach(el => el.remove());
+    document.querySelectorAll(
+        "center, section.alert, footer, div.aviso-parceria, div.chat-container, div.pm-video-watch-sidebar, div.pm-video-heading"
+    ).forEach(el => el.remove());
+    console.log("[Tampermonkey] Scripts e elementos removidos!");
+    const overlay = document.getElementById("tmk-overlay");
+    if (overlay) overlay.remove();
+}
+
+
 
     createOverlay();
     window.addEventListener("load", () => {
