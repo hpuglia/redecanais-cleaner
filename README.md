@@ -61,7 +61,7 @@ O **RedeCanaisTV Cleaner** realiza:
 1. Instale [Tampermonkey](https://www.tampermonkey.net/) no navegador.
 2. Clique no botão abaixo para **instalar o script**:
 
-[![Instalar Script](https://img.shields.io/badge/Instalar-RedeCanais%20Cleaner-orange?style=for-the-badge&logo=javascript)](https://raw.githubusercontent.com/hpuglia/redecanais-cleaner/main/redecanais-cleaner.user.js)  
+[![Instalar Script](https://img.shields.io/badge/Instalar-RedeCanais%20Cleaner-orange?style=for-the-badge&logo=javascript)](https://raw.githubusercontent.com/hpuglia/redecanaistv-cleaner/main/redecanais-cleaner.user.js)  
 
 ---
 
@@ -82,7 +82,7 @@ O **RedeCanaisTV Cleaner** realiza:
 
 ## 🆘 Suporte
 
-- Relate problemas ou sugira melhorias: [Issues](https://github.com/hpuglia/redecanais-cleaner/issues)
+- Relate problemas ou sugira melhorias: [Issues](https://github.com/hpuglia/redecanaistv-cleaner/issues)
 
 ---
 
