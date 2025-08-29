@@ -1,85 +1,76 @@
-# 🧹 RedeCanais Cleaner
+# 🧹 RedeCanaisTV Cleaner
 
-## ⚠️ IMPORTANTE
+![Banner RedeCanais Cleaner](https://iili.io/K39yFBp.png)
 
-Para melhor funcionamento e garantia de funcionamento, instale **AdBlocker** e **Popup Blocker** além do Tampermonkey:
-
-[![Instalar AdBlock](https://img.shields.io/badge/Instalar-AdBlock-brightgreen?style=for-the-badge&logo=adblock)](https://getadblock.com/pt_BR/)  
-[![Instalar Popup Blocker](https://img.shields.io/badge/Instalar-Popup%20Blocker-blue?style=for-the-badge&logo=chrome)](https://chrome.google.com/webstore/detail/pop-up-blocker-for-chrome/bkkbcggnhapdmkeljlodobbkopceiche)
+Um **UserScript** customizado para limpar anúncios, domínios e elementos indesejados no site **RedeCanaisTV**, proporcionando uma experiência mais limpa e organizada ao navegar.
 
 ---
 
-[![Tampermonkey](https://img.shields.io/badge/Tampermonkey-Compatible-brightgreen?style=for-the-badge&logo=tampermonkey)](https://www.tampermonkey.net/)  
-[![Version](https://img.shields.io/badge/Version-1.8-blue?style=for-the-badge)]()  
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)  
+## 🏷️ Status & Badges
 
-**Mantenha o site RedeCanaisTV e parceiros limpos e rápidos!**  
-Bloqueie anúncios, scripts indesejados e elementos irritantes enquanto navega, e configure facilmente domínios adicionais.
+![Version](https://img.shields.io/badge/version-3.0-blue)
+![Maintenance](https://img.shields.io/badge/maintenance-active-brightgreen)
+![Tampermonkey](https://img.shields.io/badge/compatible-Tampermonkey-ff69b4)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
+
+---
+
+## ⚠️ Requisitos
+
+Para o script funcionar corretamente, é **necessário**:
+
+- Ter instalado **AdBlocker** e **Popup Blocker**
+- Executar via **Tampermonkey** ou outro gerenciador de UserScripts
+
+> O script foi desenvolvido para melhorar a navegação, **não infringe direitos** e apenas remove elementos visuais e scripts indesejados.
+
+---
+
+## 📝 Funcionalidades
+
+O **RedeCanaisTV Cleaner** realiza:
+
+- 🎨 **Interface limpa:** substituição do CSS para melhor visual
+- 🧹 **Limpeza automática:** remove anúncios, alertas, footers e scripts desnecessários
+- ⏳ **Overlay de carregamento:** mostra "Limpando site..." enquanto o conteúdo é processado
+- 🔓 **DevTools desbloqueado:** libera console e clique direito
+- 📺 **Player otimizado:** visualização aprimorada da lista de canais
+- 💻 **Scripts tratados:** remoção de scripts desnecessários do body e head
+- 🛠️ **Compatibilidade mobile:** ajustes de layout para telas menores
+- 🚀 **Execução rápida:** overlay aparece em ~0,5s após o carregamento
+
+### Elementos removidos automaticamente
+
+- `div.unlockr-overlay`  
+- `section.alert`  
+- `center` e `footer`  
+- `#header` e `.aviso-parceria`  
 
 ---
 
 ## 🎬 Demonstração
 
-![Screenshot do RedeCanais Cleaner](https://iili.io/K39yFBp.png)  
+![Overlay Limpando Site](https://iili.io/K39yFBp.png)  
 
 > Mostra o overlay "Aguarde..." enquanto a limpeza é executada.
 
 ---
 
-## ✨ Funcionalidades
-
-- ✅ **Bloqueio de domínios e scripts de terceiros**, incluindo:
-  - `redecanais-oficial.chatango.com`
-  - `securepubads.g.doubleclick.net`
-  - `st.chatango.com`
-  - `ep2.adtrafficquality.google`
-  - `canais.disqus.com`
-- ✅ **Remoção de elementos desnecessários**:
-  - `<center>`, `<section class="alert">`, `<footer>`, `<div class="aviso-parceria">`
-- ✅ **Overlay de progresso** de 2 segundos
-- ✅ **Intercepta chamadas XHR e fetch** para impedir requisições indesejadas
-- ✅ **Bloqueia scripts externos** antes de serem carregados
-- ✅ **Suporte a múltiplos domínios parceiros**, incluindo:
-  - `redecanaistv.ee`
-  - `overflixtv.team`
-  - `vizertv.fun`
-  - `pobreflixtv.bid`
-  - `tvredecanais.bid`
-  - `megafilmeshd50.bid`
-- ✅ **Domínios personalizados**: o usuário pode adicionar domínios extras via menu do Tampermonkey (`Configurar domínios`)
-
----
-
 ## ⚡ Instalação
 
-1. Instale [Tampermonkey](https://www.tampermonkey.net/) no seu navegador.
+1. Instale [Tampermonkey](https://www.tampermonkey.net/) no navegador.
 2. Clique no botão abaixo para **instalar o script**:
 
 [![Instalar Script](https://img.shields.io/badge/Instalar-RedeCanais%20Cleaner-orange?style=for-the-badge&logo=javascript)](https://raw.githubusercontent.com/hpuglia/redecanais-cleaner/main/redecanais-cleaner.user.js)  
 
 ---
 
-## 🚀 Uso
+## 📝 Notas Rápidas
 
-- O script roda automaticamente nos domínios padrões e adicionais configurados.  
-- Após o carregamento, ele limpa scripts e elementos indesejados e exibe um overlay de progresso.  
-- Logs de bloqueio podem ser vistos no console do navegador (`F12 > Console`).  
-- Para adicionar ou remover domínios personalizados, use o menu do Tampermonkey: **Configurar domínios**.
-
----
-
-## 🌐 Domínios padrão suportados
-
-| Domínio |
-|---------|
-| `redecanaistv.ee` |
-| `overflixtv.team` |
-| `vizertv.fun` |
-| `pobreflixtv.bid` |
-| `tvredecanais.bid` |
-| `megafilmeshd50.bid` |
-
-> Domínios adicionais podem ser adicionados pelo usuário via menu do Tampermonkey.
+- Compatível com **desktop e mobile**  
+- Overlay aparece em **~0,5s** após carregar a página  
+- Foco em **limpeza visual**, sem interferir no player ou funcionalidades do site  
+- Mantido **ativamente** com atualizações regulares
 
 ---
 
@@ -97,11 +88,14 @@ Bloqueie anúncios, scripts indesejados e elementos irritantes enquanto navega, 
 
 ## 💖 Apoie este projeto
 
-Se você gostou do script e quer apoiar meu trabalho, considere fazer uma doação.  
-Clique no botão abaixo:
+Se você gostou do script e quer apoiar meu trabalho, considere fazer uma doação:  
 
 [![💖 Doar via Nubank](https://img.shields.io/badge/💖-Doar%20via%20Nubank-9c26b0?style=for-the-badge&logo=nubank&logoColor=white)](https://nubank.com.br/cobrar/na7j5/6847d4fc-4652-4c8c-9949-d499d2338b2a)
 
 ---
 
-*Script versão 1.8 – atualizado para 2025, agora com suporte a múltiplos domínios parceiros e domínios personalizados do usuário.*
+## 📌 Observações
+
+- Rodar o script sem **AdBlocker** ou **Popup Blocker** pode gerar falhas
+- Desenvolvido com foco em **limpeza visual** e **usabilidade**
+- Mantido e atualizado por **Henrique Puglia**
