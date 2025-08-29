@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         RedeCanais Cleaner
+// @name         RedeCanaisTV Cleaner
 // @namespace    https://github.com/hpuglia/
 // @version      3.0
 // @author       Henrique Puglia
