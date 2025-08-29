@@ -63,6 +63,8 @@ O **RedeCanaisTV Cleaner** realiza:
 
 [![Instalar Script](https://img.shields.io/badge/Instalar-RedeCanais%20Cleaner-orange?style=for-the-badge&logo=javascript)](https://raw.githubusercontent.com/hpuglia/redecanaistv-cleaner/main/redecanais-cleaner.user.js)  
 
+[![Instalar no Greasy Fork](https://img.shields.io/badge/🟢-Instalar%20no%20Greasy%20Fork-brightgreen?style=for-the-badge)](https://greasyfork.org/pt-BR/scripts/547696-redecanais-cleaner)
+
 ---
 
 ## 📝 Notas Rápidas
