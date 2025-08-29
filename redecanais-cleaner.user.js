@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RedeCanaisTV Cleaner
 // @namespace    https://github.com/hpuglia/
-// @version      3.0
+// @version      4.0
 // @author       Henrique Puglia
 // @description  Script customizado para limpar anúncios, domínios e elementos indesejados no site RedeCanaisTV.
 // @match         https://*redecanaistv.*/*
@@ -14,6 +14,7 @@
 // @grant        GM_registerMenuCommand
 // @grant        GM_setValue
 // @grant        GM_getValue
+// @license MIT
 // ==/UserScript==
 
 (function() {
